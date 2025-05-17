@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/mylog-frontend
+      - /mylog-frontend/node_modules
+    environment:
+      - NODE_ENV=development
+    env_file:
+      - .env
+    working_dir: /mylog-frontend
+    command: yarn dev
